@@ -1,11 +1,10 @@
 import { kebabCase } from "lodash";
 import Link from "next/link";
 import { Languages } from "lucide-react";
-import { SideMenu } from "@/components/side-menu";
 
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { getConstitution } from "@/lib/get-data";
-import { hostName, siteName, ogURL } from "@/lib/site-config";
+// import { hostName, siteName, ogURL } from "@/lib/site-config";
 
 export default async function Home() {
   const [constitution] = await Promise.all([getConstitution()]);

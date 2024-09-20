@@ -4,26 +4,15 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 // import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { useState } from "react";
 // import { Separator } from "@/components/ui/separator";
-import { Github, Menu, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 // import Search from "@/plugins/search";
 
 export const Header = () => {
-  //   const { routes, logo, githubRepo } = blogConfig;
-
-  //高亮导航栏
-  const pathname = usePathname();
-  //   const active = routes.find(
-  //     (item: any) => item.value == "/" + pathname.split("/")[1]
-  //   )?.name;
-
   const { theme, setTheme } = useTheme();
-  const [open, setOpen] = useState(false);
 
   return (
     <div
@@ -40,18 +29,6 @@ export const Header = () => {
             <Image src="/logo.png" alt="BasicLaws.de" width={48} height={48} />
             <div className={"text-xl font-bold font-sans"}>BasicLaws.de</div>
           </Link>
-          {/* <div className={"hidden md:block space-x-1"}>
-            {routes.map((route: any) => (
-              <Link href={route?.value}>
-                <Button
-                  variant={active == route.name ? "secondary" : "ghost"}
-                  className={"text-base"}
-                >
-                  {route.name}
-                </Button>
-              </Link>
-            ))}
-          </div> */}
         </div>
         <div className={"flex justify-center items-center space-x-1"}>
           {/*   <div className={"md:hidden block"}>
