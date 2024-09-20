@@ -4,7 +4,6 @@ import { Languages } from "lucide-react";
 
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { getConstitution } from "@/lib/get-data";
-// import { hostName, siteName, ogURL } from "@/lib/site-config";
 
 export default async function Home() {
   const [constitution] = await Promise.all([getConstitution()]);

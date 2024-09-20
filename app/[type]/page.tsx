@@ -1,9 +1,37 @@
+import { type Metadata } from "next";
+import { kebabCase } from "lodash";
+
 import { redirect } from "next/navigation";
 import { Languages } from "lucide-react";
 import { getConstitutionByType } from "@/lib/get-data";
+import { siteName, ogURL, hostName } from "@/lib/site-config";
 
 interface Props {
   params: { type: string };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const sectionData = await getConstitutionByType(params.type);
+
+  if (typeof sectionData === "undefined") {
+    redirect("/");
+  }
+
+  const pageURL = `${hostName}/${kebabCase(sectionData.title)}`;
+
+  return {
+    title: sectionData.title,
+    description: sectionData.title,
+    openGraph: {
+      siteName,
+      locale: "en_US",
+      type: "website",
+      images: [`${ogURL}${pageURL}`],
+    },
+    other: {
+      canonical: pageURL,
+    },
+  };
 }
 
 export default async function TypePage({ params }: Props) {
