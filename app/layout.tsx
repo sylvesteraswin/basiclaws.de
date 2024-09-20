@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Script from "next/script";
 
 import { Header } from "@/components/header";
 import Footer from "@/components/footer";
@@ -55,6 +56,11 @@ export default function RootLayout({
             </div>
           </main>
         </div>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1170295433759824"
+          crossOrigin="anonymous"
+        />
         <Footer />
       </body>
     </html>
